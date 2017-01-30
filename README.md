@@ -76,7 +76,8 @@ GET /weather/8.8.8.8
 
 1. Begin by forking this repository to your own GitHub account
 2. Create your PHP implementation of the requirements above, committing your code as you progress
-3. When finished, open a Pull Request to [lxrco/php-code-challenge-a](https://github.com/lxrco/php-code-challenge-a)
+3. Create a `README.md` with instructions detailing installation and configuration of your project so we can run it
+4. When finished, open a Pull Request to [lxrco/php-code-challenge-a](https://github.com/lxrco/php-code-challenge-a)
 
 ### Remarks
 
