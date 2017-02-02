@@ -16,11 +16,11 @@ class FreeGeoIP {
 
     function getGeoLocation($ip){
         $connection = new Connection();
-        $response = $connection->curlRequest("http://ip-api.com/json/$ip");
+        $response = $connection->curlRequest("http://freegeoip.net/json/$ip");
 
         $city = $response->city;
-        $country = $response->country;
-        $region = $response->region;
+        $country = $response->country_name;
+        $region = $response->region_code;
 
         $geoLocation = new GeoLocation();
         $geoLocation->setCity($city)
