@@ -12,6 +12,8 @@ class LxrAutoload
 
         $loader->add('Controllers', __DIR__ . '/../src/' );
         $loader->add('Connection', __DIR__ . '/../src/' );
+        $loader->add('Services', __DIR__ . '/../src/' );
+        $loader->add('Lxr', __DIR__ . '/../src/' );
 
         return $loader;
     }

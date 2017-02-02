@@ -19,7 +19,7 @@ class Weather implements ControllerProviderInterface
     {
         $controllers = $app['controllers_factory'];
 
-        $controllers->get('/ip',function () use ($app) {
+        $controllers->get('/{ip}',function ($ip) use ($app) {
 
             return new Response('xxx');
         });
