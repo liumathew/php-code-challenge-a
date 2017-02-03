@@ -1,3 +1,30 @@
+# Installation and configuration
+## Installation
+It's developed under xampp (php 5.6 and apache)
+
+1. Make sure php, apache and composer are installed
+2. Place the code in your web root
+3. Go to 'php-code-challenge-a' directory, and run command "composer install".
+And it will be ready to use.
+
+## Functional test
+To run functional tests, you may want to run 'phpunit' in 'tests' directory
+```
+matthew@matthew-VAIO MINGW64 /c/web/weather.lxr/php-code-challenge-a/tests (master)
+$ phpunit
+PHPUnit 4.8.0 by Sebastian Bergmann and contributors.
+
+....
+
+Time: 6.48 seconds, Memory: 5.25MB
+
+OK (4 tests, 32 assertions)
+```
+
+PS: The destination url in the 'tests' directory need to be changed if you specify a vhost for this web application. You would replace all the '127.0.0.1' to the vhost.
+
+========================================================================================================================
+
 # PHP Code Challenge
 
 ### Requirements
