@@ -21,7 +21,7 @@ class Bootstrap {
 
         $app['debug'] = true;
 
-        $app['ipapi_service'] = function ($app) {
+        $app['ipapi_service'] = function () {
             return new Services\IPApiService();
         };
         $app['freegeoip_service'] = function () {
