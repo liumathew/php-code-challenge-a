@@ -19,9 +19,41 @@ class Weather implements ControllerProviderInterface
     {
         $controllers = $app['controllers_factory'];
 
-        $controllers->get('/{ip}',function ($ip) use ($app) {
+        $controllers->get('/',function (Request $request) use ($app) {
+            //todo: check ip
+            $ip = $request->getClientIp();
 
-            return new Response('xxx');
+            return $app->redirect("/weather/$ip",302);
+        });
+
+        $controllers->get('/{ip}',function (Request $request, $ip) use ($app) {
+
+            /* @var \Services\FreeGeoIP $geoService */
+            $geoService = $app['freegeoip_service'];
+            $geoLocation = $geoService->getGeoLocation($ip);
+            $lat = $geoLocation->getLatitude();
+            $lon = $geoLocation->getLongitude();
+
+            /* @var \Services\OpenWeatherMap $service */
+            $service = $app['weather_service'];
+
+            $weather = $service->getWeather($lat,$lon);
+            return new Response(json_encode
+                (
+                    [
+                        'ip'=>$ip,
+                        'city'=>$weather->getCity(),
+                        'temperature'=>[
+                            'current'   => $weather->getTemperature()->getCurrent(),
+                            'low'        => $weather->getTemperature()->getLow(),
+                            'high'       => $weather->getTemperature()->getHigh()
+                        ],
+                        'wind'=>[
+                            'speed'     => $weather->getWind()->getSpeed(),
+                            'direction' => $weather->getWind()->getDirection(),
+                        ],
+                    ])
+            );
         });
 
         return $controllers;

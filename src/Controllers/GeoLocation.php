@@ -20,6 +20,7 @@ class GeoLocation implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get('/',function (Request $request) use ($app) {
+            //todo: check ip
             $ip = $request->getClientIp();
 
             return $app->redirect("/geolocation/$ip",302);
@@ -45,10 +46,10 @@ class GeoLocation implements ControllerProviderInterface
                 [
                     'ip'=>$ip,
                     'geo'=>[
-                        'service'=>$type,
-                        'city'   =>$geoLocation->getCity(),
-                        'region' =>$geoLocation->getRegion(),
-                        'country'=>$geoLocation->getCountry()
+                        'service' => $type,
+                        'city'    => $geoLocation->getCity(),
+                        'region'  => $geoLocation->getRegion(),
+                        'country' => $geoLocation->getCountry()
                     ],
                 ])
             );
