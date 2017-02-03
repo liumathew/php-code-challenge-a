@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matthew
- * Date: 01/02/17
- * Time: 10:44 PM
- */
 
 namespace Controllers;
 
@@ -17,6 +11,7 @@ class GeoLocation implements ControllerProviderInterface
 {
     public function connect(Application $app)
     {
+        /** @var \Silex\ControllerCollection  $controllers */
         $controllers = $app['controllers_factory'];
 
         $controllers->get('/',function (Request $request) use ($app) {

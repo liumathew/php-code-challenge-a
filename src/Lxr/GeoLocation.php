@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matthew
- * Date: 02/02/17
- * Time: 1:16 AM
- */
 
 namespace Lxr;
 
@@ -76,6 +70,7 @@ class GeoLocation {
 
     /**
      * @param float $latitude
+     * @return $this
      */
     public function setLatitude($latitude)
     {
@@ -93,6 +88,7 @@ class GeoLocation {
 
     /**
      * @param float $longitude
+     * @return $this
      */
     public function setLongitude($longitude)
     {

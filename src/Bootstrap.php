@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matthew
- * Date: 01/02/17
- * Time: 10:49 PM
- */
 
 class Bootstrap {
 
@@ -15,6 +9,9 @@ class Bootstrap {
         $this->register();
     }
 
+    /**
+     * Register services to $app
+     */
     public function register()
     {
         $app = new \Silex\Application();
@@ -29,10 +26,6 @@ class Bootstrap {
         };
         $app['weather_service'] = function () {
             return new Services\OpenWeatherMap();
-        };
-
-        $app['ipresolver_service'] = function ($app) {
-            return new Services\IPResolver($app);
         };
 
         date_default_timezone_set('UTC');

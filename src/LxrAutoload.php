@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matthew
- * Date: 01/02/17
- * Time: 10:46 PM
- */
+
 class LxrAutoload
 {
     static public function getLoader() {

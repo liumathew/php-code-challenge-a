@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matthew
- * Date: 01/02/17
- * Time: 10:45 PM
- */
+
 error_reporting(E_ALL);
 
 require('../src/LxrAutoload.php');

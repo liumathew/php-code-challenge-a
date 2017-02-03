@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matthew
- * Date: 02/02/17
- * Time: 11:49 PM
- */
 
 namespace Tests\Lxr;
 

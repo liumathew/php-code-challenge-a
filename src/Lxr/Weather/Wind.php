@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matthew
- * Date: 02/02/17
- * Time: 8:54 AM
- */
 
 namespace Lxr\Weather;
 
@@ -17,12 +11,12 @@ class Wind {
 
     /**
      * @param int $direction
+     * @return $this
      */
     public function setDirection($direction)
     {
         $this->direction = $direction;
         return $this;
-
     }
 
     /**
@@ -35,6 +29,7 @@ class Wind {
 
     /**
      * @param int $speed
+     * @return $this
      */
     public function setSpeed($speed)
     {

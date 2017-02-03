@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matthew
- * Date: 01/02/17
- * Time: 10:45 PM
- */
 
 require_once __DIR__ . '/../vendor/composer/autoload_real.php';
 

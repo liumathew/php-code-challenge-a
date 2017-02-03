@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matthew
- * Date: 03/02/17
- * Time: 2:24 AM
- */
 
 namespace Tests\Lxr;
 
@@ -43,7 +37,6 @@ class WeatherTest extends WebTestCase{
         $this->assertArrayHasKey('wind',$data);
         $this->assertArrayHasKey('speed',$data['wind']);
         $this->assertArrayHasKey('direction',$data['wind']);
-
     }
 
     public function testWeatherWithoutIP()

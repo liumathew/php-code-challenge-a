@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matthew
- * Date: 02/02/17
- * Time: 12:18 AM
- */
 
 namespace Services;
 
@@ -17,18 +11,18 @@ class IPApiService
         $connection = new Connection();
         $response = $connection->curlRequest("http://ip-api.com/json/$ip");
 
-        $city = $response->city;
+        $city    = $response->city;
         $country = $response->country;
-        $region = $response->region;
-        $lat = $response->lat;
-        $lon = $response->lon;
+        $region  = $response->region;
+        $lat     = $response->lat;
+        $lon     = $response->lon;
 
         $geoLocation = new GeoLocation();
         $geoLocation->setCity($city)
-            ->setCountry($country)
-            ->setRegion($region)
-            ->setLatitude($lat)
-            ->setLongitude($lon);
+                    ->setCountry($country)
+                    ->setRegion($region)
+                    ->setLatitude($lat)
+                    ->setLongitude($lon);
 
 
         return $geoLocation;

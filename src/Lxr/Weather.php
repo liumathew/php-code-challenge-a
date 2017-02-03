@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matthew
- * Date: 02/02/17
- * Time: 8:51 AM
- */
 
 namespace Lxr;
 
@@ -17,7 +11,8 @@ class Weather {
     private $wind;
 
     /**
-     * @param mixed $city
+     * @param string $city
+     * @return $this
      */
     public function setCity($city)
     {
@@ -26,7 +21,7 @@ class Weather {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getCity()
     {
@@ -35,6 +30,7 @@ class Weather {
 
     /**
      * @param \Lxr\Weather\Temperature $temperature
+     * @return $this
      */
     public function setTemperature($temperature)
     {
@@ -52,6 +48,7 @@ class Weather {
 
     /**
      * @param \Lxr\Weather\Wind $wind
+     * @return $this
      */
     public function setWind($wind)
     {

@@ -1,24 +1,19 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matthew
- * Date: 02/02/17
- * Time: 8:53 AM
- */
 
 namespace Lxr\Weather;
 
 
 class Temperature {
-    /** @var  int current temperature in celus */
+    /** @var  int current temperature in celcius */
     private $current;
-    /** @var  int lowest temperature in celus */
+    /** @var  int lowest temperature in celcius */
     private $low;
-    /** @var  int highest temperature in celus */
+    /** @var  int highest temperature in celcius */
     private $high;
 
     /**
      * @param int $current
+     * @return $this
      */
     public function setCurrent($current)
     {
@@ -36,6 +31,7 @@ class Temperature {
 
     /**
      * @param int $high
+     * @return $this
      */
     public function setHigh($high)
     {
@@ -53,6 +49,7 @@ class Temperature {
 
     /**
      * @param int $low
+     * @return $this
      */
     public function setLow($low)
     {

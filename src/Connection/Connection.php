@@ -1,16 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: matthew
- * Date: 01/02/17
- * Time: 11:45 PM
- */
 
 namespace Connection;
 
 
 class Connection {
 
+    /**
+     * Send curl request and returned the decoded response
+     *
+     * @param $url
+     * @return mixed
+     * @throws \Exception
+     */
     public function curlRequest($url)
     {
         $ch = curl_init();
