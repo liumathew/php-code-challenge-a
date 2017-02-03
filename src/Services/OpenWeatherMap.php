@@ -15,7 +15,7 @@ class OpenWeatherMap
 {
     public function getWeather($lat,$lon){
         $connection = new Connection();
-        $response = $connection->curlRequest("http://api.openweathermap.org/data/2.5/weather?APPID=6103b0f582e78c7382bc6b0cdc06deb8&lat=$lat&lon=$lon");
+        $response = $connection->curlRequest("http://api.openweathermap.org/data/2.5/weather?appid=6103b0f582e78c7382bc6b0cdc06deb8&units=metric&lat=$lat&lon=$lon");
 
         $currentTemp = $response->main->temp;
         $lowTemp = $response->main->temp_min;
