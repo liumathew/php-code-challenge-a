@@ -20,9 +20,16 @@ class Weather implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get('/',function (Request $request) use ($app) {
-            //todo: check ip
+
             $ip = $request->getClientIp();
 
+            // Use default IP if the IP is private
+            if(preg_match('/(^127\.)|
+                        (^10\.)|
+                        (^172\.1[6-9]\.)|(^172\.2[0-9]\.)|(^172\.3[0-1]\.)|
+                        (^192\.168\.)/',$ip)){
+                $ip = '8.8.8.8';
+            }
             return $app->redirect("/weather/$ip",302);
         });
 

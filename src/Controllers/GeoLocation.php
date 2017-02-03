@@ -20,8 +20,16 @@ class GeoLocation implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get('/',function (Request $request) use ($app) {
-            //todo: check ip
+
             $ip = $request->getClientIp();
+
+            // Use default IP if the IP is private
+            if(preg_match('/(^127\.)|
+                        (^10\.)|
+                        (^172\.1[6-9]\.)|(^172\.2[0-9]\.)|(^172\.3[0-1]\.)|
+                        (^192\.168\.)/',$ip)){
+                $ip = '8.8.8.8';
+            }
 
             return $app->redirect("/geolocation/$ip",302);
         });
@@ -30,14 +38,14 @@ class GeoLocation implements ControllerProviderInterface
 
             $type = $request->query->get('service');
 
-            if($type=='ip-api'){
-                /* @var \Services\IPApiService $service */
-                $service = $app['ipapi_service'];
-            }
-            else{
-                $type = 'freegeoip';
+            if($type=='freegeoip'){
                 /* @var \Services\FreeGeoIP $service */
                 $service = $app['freegeoip_service'];
+            }
+            else{
+                $type = 'ip-api';
+                /* @var \Services\IPApiService $service */
+                $service = $app['ipapi_service'];
             }
 
             $geoLocation = $service->getGeoLocation($ip);
