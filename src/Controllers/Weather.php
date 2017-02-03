@@ -33,8 +33,11 @@ class Weather implements ControllerProviderInterface
             return $app->redirect("/weather/$ip",302);
         });
 
-        $controllers->get('/{ip}',function (Request $request, $ip) use ($app) {
-
+        $controllers->get('/{ip}',function ($ip) use ($app) {
+            
+            if(!preg_match("/(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])/",$ip)){
+                throw new \Exception("IP invalid");
+            }
             /* @var \Services\FreeGeoIP $geoService */
             $geoService = $app['freegeoip_service'];
             $geoLocation = $geoService->getGeoLocation($ip);
